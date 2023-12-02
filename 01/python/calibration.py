@@ -21,7 +21,7 @@ def convert_to_number(number):
 
 if __name__ == '__main__':
     values = []
-    with open('input.txt', 'r') as f:
+    with open('../input.txt', 'r') as f:
         data = f.read().splitlines()
         for i, line in enumerate(data):
             digits = re.findall(r'(?=(one|two|three|four|five|six|seven|eight|nine|\d))', line)
