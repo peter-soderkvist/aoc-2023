@@ -1,3 +1,6 @@
+import re
+
+
 result = [0]
 
 
@@ -15,14 +18,14 @@ if __name__ == '__main__':
         for i, line in enumerate(lines):
             increment_card(i)
             winning_numbers, my_numbers = line.split(':')[1].split('|')
+            winning_numbers = re.findall(r'[\d]+', winning_numbers)
+            my_numbers = re.findall(r'[\d]+', my_numbers)
 
             extra_cards = result[i]
             for _ in range(extra_cards):
                 my_winning_numbers = []
-                for winning_num in winning_numbers.strip().split(' '):
-                    for my_num in my_numbers.strip().split(' '):
-                        if not my_num.isdigit():
-                            continue
+                for winning_num in winning_numbers:
+                    for my_num in my_numbers:
                         if my_num == winning_num:
                             my_winning_numbers.append(int(my_num))
 
