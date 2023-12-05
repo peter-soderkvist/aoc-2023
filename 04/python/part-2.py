@@ -21,18 +21,18 @@ if __name__ == '__main__':
             winning_numbers = re.findall(r'[\d]+', winning_numbers)
             my_numbers = re.findall(r'[\d]+', my_numbers)
 
-            extra_cards = result[i]
-            for _ in range(extra_cards):
-                my_winning_numbers = []
-                for winning_num in winning_numbers:
-                    for my_num in my_numbers:
-                        if my_num == winning_num:
-                            my_winning_numbers.append(int(my_num))
+            my_winning_numbers = []
+            for winning_num in winning_numbers:
+                for my_num in my_numbers:
+                    if my_num == winning_num:
+                        my_winning_numbers.append(int(my_num))
 
+            
+            for _ in range(result[i]):
                 for j, _ in enumerate(my_winning_numbers):
                     next_card = i + j + 1
                     if next_card < len(lines):
-                        increment_card(next_card)
+                        increment_card(index=next_card)
 
     print(len(result))
     print(f"{result=}")
